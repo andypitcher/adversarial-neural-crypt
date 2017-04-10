@@ -19,17 +19,24 @@ from layers import ConvLayer, HiddenLayer, get_all_params
 from lasagne.updates import adam
 
 #Banner
-Banner= '''
 
- ___  _  _  ___  ___   __  _  _   __        ___             
-|_ _|| \\| |/ __|| __| / / / |/ | /  \\  ___ | _ \ _ _  ___  (_) ___  __ | |
- | | | .` |\\__ \\| _| \/ _ \\| || || () ||___||  _/| '_|/ _ \ | |/ -_)/ _||  _|
-|___||_|\\_||___/|___|\___/|_||_| \\__/	   |_|  |_|  \___/_/ |\\___|\\__| \\__|
-                                                         |__/
+Banner= """
 
-'''
-result = string.replace("\\","")
-# Parameters
+
+|_ _| \ | / ___|| ____/ /_ / / |/ _ \
+ | ||  \| \___ \|  _|| '_ \| | | | | |
+ | || |\  |___) | |__| (_) | | | |_| |
+|___|_| \_|____/|_____\___/|_|_|\___/
+
+		|  _ \ _ __ ___ (_) ___  ___| |_
+		| |_) | '__/ _ \| |/ _ \/ __| __|
+		|  __/| | | (_) | |  __/ (__| |_
+		|_|   |_|  \___// |\___|\___|\__|
+              		       |__/
+"""
+
+
+#Parameters
 batch_size = 1
 msg_len = 8
 key_len = 8
@@ -246,7 +253,7 @@ def train(integer,key,bob_or_eve,results, max_iters, print_every, es=0., es_limi
 
 adversarial_iterations = 1
 last_message= 256
-key=112
+key=119
 key_bin=bin(key)[2:].zfill(msg_len)
 
 
@@ -254,7 +261,7 @@ key_bin=bin(key)[2:].zfill(msg_len)
 tab = tt.Texttable()
 x = [[]] 
 
-
+print "\t\t\n\n",Banner
 print "\t\t\n\n\n\nLookup table for static KEY -> [",key_bin,"] (",key,")"
 
 #Loop from 0 to 'last_message'
@@ -278,8 +285,3 @@ tab.header(['Message_int', 'Message(8bits)', 'Cipher(8bits)'])
 print tab.draw()
 
 
- ___  _  _  ___  ___   __  _  _   __        ___             _           _   
-|_ _|| \| |/ __|| __| / / / |/ | /  \  ___ | _ \ _ _  ___  (_) ___  __ | |_ 
- | | | .` |\__ \| _| / _ \| || || () ||___||  _/| '_|/ _ \ | |/ -_)/ _||  _|
-|___||_|\_||___/|___|\___/|_||_| \__/      |_|  |_|  \___/_/ |\___|\__| \__|
-                                                         |__/               
